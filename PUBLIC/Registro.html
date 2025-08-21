@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGEmedic registro</title>
+    <link rel="stylesheet" href="CSS/registro.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PGEmedic registro</h1>
+        <form id="registroForm">
+            <div class="form-grid">
+                <input type="text" id="primerNombre" placeholder="INGRESE SU PRIMER NOMBRE">
+                <input type="text" id="numeroContacto" placeholder="NUMERO CONTACTO">
+                <input type="text" id="segundoNombre" placeholder="INGRESE SU SEGUNDO NOMBRE">
+                <input type="text" id="otrosNumerosContacto" placeholder="OTROS NUMEROS DE CONTACTO">
+                <input type="text" id="primerApellido" placeholder="INGRESE SU PRIMER APELLIDO">
+                <input type="text" id="lugarResidencia" placeholder="LUGAR DE RESIDENCIA">
+                <input type="text" id="segundoApellido" placeholder="INGRESE SU SEGUNDO APELLIDO">
+                <input type="email" id="correoElectronico" placeholder="CORREO ELECTRONICO">
+                <input type="text" id="cedula" placeholder="C.C. TTL">
+                <p class="instruccion">Asegúrate que toda la información registrada sea correcta</p>
+                <div class="full-width">
+                <button type="submit" class="botonRegistrar">REGISTRAR</button>
+                </div>
+            </div>
+        </form>
+        <div id="mensaje"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registroForm');
+        const messageDiv = document.getElementById('message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Previene el envío del formulario por defecto
+
+            const data = {
+                nombres: form.nombres.value,
+                apellidos: `${form.primer_apellido.value} ${form.segundo_apellido.value}`,
+                correo: form.correo.value,
+                identificacion: form.identificacion.value,
+                telefono: form.telefono.value,
+                otro_telefono: form.otro_telefono.value,
+                direccion: form.direccion.value
+            };
+
+            try {
+                const response = await fetch('/registrar_paciente', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    messageDiv.textContent = '✅ ¡Se ha registrado correctamente!';
+                    messageDiv.style.color = 'green';
+                    form.reset(); // Limpia el formulario
+                } else {
+                    messageDiv.textContent = `❌ Error: ${result.message}`;
+                    messageDiv.style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageDiv.textContent = '❌ Ocurrió un error en la conexión. Inténtalo de nuevo.';
+                messageDiv.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -35,7 +35,7 @@
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault(); // Previene el envío del formulario por defecto
-
+            /*
             const data = {
                 nombres: form.nombres.value,
                 apellidos: `${form.primer_apellido.value} ${form.segundo_apellido.value}`,
@@ -44,6 +44,16 @@
                 telefono: form.telefono.value,
                 otro_telefono: form.otro_telefono.value,
                 direccion: form.direccion.value
+            };*/
+
+            const data = {
+                nombres: `${form.primerNombre.value} ${form.segundoNombre.value}`,
+                apellidos: `${form.primerApellido.value} ${form.segundoApellido.value}`,
+                correo: form.correoElectronico.value,
+                identificacion: form.cedula.value,
+                telefono: form.numeroContacto.value,
+                otro_telefono: form.otrosNumerosContacto.value,
+                direccion: form.lugarResidencia.value
             };
 
             try {

@@ -1,0 +1,174 @@
+*{margin: 0; padding: 0; font-family: Verdana, Geneva, Tahoma, sans-serif;}
+/*-----Header-----*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 40px;
+    background: linear-gradient(to right, #2ecc71, #1c9cb1);
+    color: white;
+}
+/*-----Logo-----*/
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  transition: all 0.4s;
+}
+.logo-text:hover{
+    transform: scale(1.1);
+    text-shadow: 2px 2px 4px #202028
+}
+/*-----Menu-----*/
+.menu{
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.menu a:hover {color: #11597c;}
+/*-----Banner-----*/
+#banner{
+    /*0 top, 50px bottom*/
+    padding: 0 50px;
+    background-image: url(../IMAGENES/julia-zyablova-S1v7hVUiCg0-unsplash.jpg);
+    height: 50vh;
+    background-size: cover;
+    background-position:center;
+    background-size: 80%;
+}
+#banner::before{
+    content: '';
+    background: rgba(66, 68, 96, 0.5);
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    left: 0;
+}
+.contenido-banner h3{
+    font-size: 30px;
+    font-weight: 400;
+    padding: 10px 0;
+}
+.contenido-banner h3 span{
+    font-weight: 600;
+    color: #2eff87;
+}
+.contenido-banner{ 
+    position: relative;
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/*-----Banner-botón-----*/
+.boton-empezar{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    border: 2px solid #2eff87;
+    padding: 15px 30px;
+    border-radius: 15px;
+    align-self: baseline; 
+    transition: all 0.4s; 
+}
+.boton-empezar:hover{
+    background: #2eff87;
+    color: #202028;
+}
+/*-----Contacto-----*/
+#contacto{
+    background: #202028;
+    padding: 50px 0px;
+    color: #fff;
+}
+#contacto h4{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2eff87;
+    transition: all 0.4s;
+}
+#contacto h4:hover{
+    transform: scale(1.2); 
+}
+#contacto form{
+    max-width: 80%;
+    margin: 0 auto;
+}
+.datos-form{
+    display: flex;
+}
+.datos-form div{
+    padding: 10px;
+    flex: 1;
+    color: white;
+}
+form label{
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+}
+form input, form textarea{
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #2eff87;
+    padding: 10px 5px;
+    outline: 0;
+    color: #202028 ;
+    width: 100%;
+    resize: none;
+}
+form input:focus, form textarea:focus{
+    border-color: #2eff87;
+    box-shadow: 0 2px 0 2px #117c5f;
+}
+form input::placeholder, form textarea::placeholder{
+    font-weight: 200px;
+    color: #a0a0bb;
+}
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: #4d4d5c;
+}
+.boton-formulario .boton-saber-mas{
+    padding: 10px;
+    background-color: #117c5f;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    border: 2px solid #2eff87;
+    color: #fff;
+    text-align: center;
+    transition: 0.4s;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.boton-formulario .boton-saber-mas:hover{
+    background: #2eff87;
+    color: white;
+}
+/*-----Footer-----*/
+footer{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #2ecc71, #1c9cb1);
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+}

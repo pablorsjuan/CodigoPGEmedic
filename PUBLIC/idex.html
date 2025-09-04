@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido a PGEmedic</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <script src="https://kit.fontawesome.com/af9a1bc3d4.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="left-panel">
+        <a href="./Landing_Page.html" class="btn-volver">
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <h6>Volver</h6>
+        </a>
         <h1>Bienvenidos a PGEmedic</h1>
         <form class="login-form">
             <input type="text" placeholder="USUARIO" required>
             <input type="password" placeholder="CONTRASEÑA" required>
             <div class="buttons">
-                <button type="button" class="btn-register" onclick="location.href='registro.html'">REGISTRARSE</button>
-                <button type="submit" class="btn-login">INGRESAR</button>
+                <button type="button" class="btn-register" onclick="location.href='registro.html'" title="Si es un nuevo usuario, de click aquí para registrarse">REGISTRARSE</button>
+                <button type="submit" class="btn-login" title="Si ya se registró proviamente, de click aquí">INGRESAR</button>
             </div>
-            <p>Si olvidaste tu contraseña, haz <a href="#">click aquí</a></p>
+            <p>Si olvidaste tu contraseña, haz <a href="./Forgot_password.html">click aquí</a></p>
         </form>
     </div>
     <div class="right-panel">

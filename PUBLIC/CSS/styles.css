@@ -5,6 +5,39 @@ body {
     display: flex;
     height: 100vh;
 }
+/*-----Botón volver-----*/
+.btn-volver {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 2px solid transparent; /* ya tiene borde, pero invisible */
+    border-radius: 25px;
+
+    transition: border-color 0.3s; 
+    cursor: pointer;
+}
+.btn-volver:hover {
+    border-color: white;
+}
+.btn-volver h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+.btn-volver i {
+    color: white;
+}
 /*-----Left-panel-----*/
  .left-panel {
     background: linear-gradient(to right, #2ecc71, #1c9cb1);
@@ -96,7 +129,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f5f5f5; /* Color de fondo para la imagen */
+    background-color: white; /* Color de fondo para la imagen */
     overflow: hidden 
 }
 .right-panel img{

@@ -10,10 +10,21 @@ header{
     color: white;
 }
 /*-----Logo-----*/
+.logo-img {
+  width: 60px; /* Ajusta según el tamaño deseado */
+  height: auto;
+  border-radius: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo-img:hover {
+  transform: scale(1.2); /* Agranda el logo un 10% */
+  box-shadow: 0 0 10px rgba(22, 244, 255, 1); /* Efecto de resplandor */
+  transition: 0.4s;
+}
 .logo{
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 .logo-text {
   font-size: 1.5rem;
@@ -126,7 +137,7 @@ form label{
 form input, form textarea{
     background: white;
     border-radius: 5px;
-    border: 2px solid #2eff87;
+    border: 2px solid #117c5f;
     padding: 10px 5px;
     outline: 0;
     color: #202028 ;

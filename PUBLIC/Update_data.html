@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar datos</title>
+    <link rel="stylesheet" href="./CSS/Update_data.css">
+    <script src="https://kit.fontawesome.com/af9a1bc3d4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Header-->
+    <header>
+        <div class="logo">
+            <img src="./IMAGENES/Logo (Dark Version).png" alt="Logo" class="logo-img">
+            <span class="logo-text">PGEmedic</span>
+        </div>
+        <span class="welcome-text">Bienvenido Pepe Pérez</span>
+        <div class="user-conteiner">
+            <i class="fa-solid fa-user fa-2x" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false"></i>
+            <div id="dropdown" class="dropdown hidden" role="menu" aria-label="Menú de usuario">
+                <ul>
+                    <li><a href="#">Notificaciones</a></li>
+                    <li><a href="#">Ajustes avanzados</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--Main-->
+    <main class="content">
+        <a href="./Principal.html" class="btn-volver">
+            <i class="fa-solid fa-arrow-left-long"></i>
+            <h6>Volver</h6>
+        </a>
+    </main>
+    <!--Footer-->
+    <footer>
+        <h4>
+            <p>&copy 2025 PGEmedic</p>
+        </h4>
+    </footer>
+    <!--Script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        let userIcon = document.getElementById('user-icon') || document.querySelector('.user-conteiner i');
+        let dropdown = document.getElementById('dropdown') || document.querySelector('.user-conteiner .dropdown');
+        const container = document.querySelector('.user-conteiner');
+
+        if (!userIcon || !dropdown || !container) {
+            console.warn('UserIcon o dropdown no encontrados en el DOM — revisa ids y que el dropdown esté DENTRO de .user-conteiner');
+            return;
+        }
+        function toggleDropdown(e) {
+            e.stopPropagation();
+            dropdown.classList.toggle('hidden');
+            const expanded = !dropdown.classList.contains('hidden');
+            userIcon.setAttribute('aria-expanded', String(expanded));
+        }
+        userIcon.addEventListener('click', toggleDropdown);
+
+        // cerrar si clicas fuera
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.user-conteiner')) {
+                if (!dropdown.classList.contains('hidden')) {
+                    dropdown.classList.add('hidden');
+                    userIcon.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+        });
+    </script>
+</body>
+</html>

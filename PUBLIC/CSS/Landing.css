@@ -32,10 +32,6 @@ header{
   color: white;
   transition: all 0.4s;
 }
-.logo-text:hover{
-    transform: scale(1.1);
-    text-shadow: 2px 2px 4px #202028
-}
 /*-----Menu-----*/
 .menu{
   list-style: none;

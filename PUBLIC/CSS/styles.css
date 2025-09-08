@@ -129,7 +129,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white; /* Color de fondo para la imagen */
+    background-color: white;
     overflow: hidden 
 }
 .right-panel img{
@@ -145,10 +145,3 @@ body {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
-/*.right-panel img {
-    width: 50%;
-    background-size: cover;
-    background-position: center;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}*/

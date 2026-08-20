@@ -32,7 +32,7 @@ const pacienteSchema = new mongoose.Schema({
     telefono: String,
     otro_telefono: String,
     direccion: String,
-    historias_clinicas: Array
+    historias_clinicas: { type: [mongoose.Schema.Types.Mixed], default: [] }
 });
 
 const Paciente = mongoose.model('Paciente', pacienteSchema);
@@ -57,6 +57,35 @@ app.post('/registroForm', async (req, res) => {
     } catch (error) {
         console.error("❌ Error al registrar:", error);
         res.status(500).send({ message: 'Error al registrar el paciente', error });
+    }
+});
+
+// Ruta para agregar una historia clínica al paciente identificado por "identificacion"
+app.post('/registrarHistoria', async (req, res) => {
+    try {
+        // Se espera en el body: { identificacion: '...', <campos_historia> }
+        const { identificacion, ...historia } = req.body;
+        if (!identificacion) {
+            return res.status(400).send({ message: 'Identificación del paciente es requerida' });
+        }
+
+        // Añadir fecha si no viene proporcionada
+        const historiaObj = { ...historia, fecha: historia.fecha || new Date() };
+
+        const paciente = await Paciente.findOneAndUpdate(
+            { identificacion: identificacion },
+            { $push: { historias_clinicas: historiaObj } },
+            { new: true }
+        );
+
+        if (!paciente) {
+            return res.status(404).send({ message: 'No existe paciente con esa identificación' });
+        }
+
+        res.status(200).send({ message: 'Historia clínica agregada correctamente', paciente });
+    } catch (error) {
+        console.error('❌ Error agregando historia clínica:', error);
+        res.status(500).send({ message: 'Error al agregar la historia clínica', error });
     }
 });
 
